@@ -1,5 +1,12 @@
 package edu.hav.labs.service.library.interfaces;
 
+/*
+  @author   Havaleshko Bohdana
+  @project   labs
+  @version  1.0.0
+  @since 13.04.2021
+*/
+
 import edu.hav.labs.model.Library;
 
 import java.util.List;

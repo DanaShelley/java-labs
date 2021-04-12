@@ -1,5 +1,12 @@
 package edu.hav.labs.controller.rest;
 
+/*
+  @author   Havaleshko Bohdana
+  @project   labs
+  @version  1.0.0
+  @since 13.04.2021
+*/
+
 import edu.hav.labs.model.Library;
 import edu.hav.labs.service.library.impls.LibraryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,5 +1,14 @@
 package edu.hav.labs.dao.library.impls;
 
+/*
+  @author   Havaleshko Bohdana
+  @project   labs
+  @version  1.0.0
+  @since 13.04.2021
+*/
+
+
+
 import edu.hav.labs.dao.library.interfaces.ILibraryDAO;
 import edu.hav.labs.data.FakeData;
 import edu.hav.labs.model.Library;

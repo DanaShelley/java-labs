@@ -1,5 +1,12 @@
 package edu.hav.labs.controller.rest;
 
+/*
+  @author   Havaleshko Bohdana
+  @project   labs
+  @version  1.0.0
+  @since 13.04.2021
+*/
+
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
