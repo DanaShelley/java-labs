@@ -1,53 +1,63 @@
 package edu.hav.labs.model;
 
-import java.time.LocalDate;
 import java.util.Objects;
 
 public class Student {
     private String id;
-    private String name;
-    private LocalDate dateOfBirth;
+    private Membership membership;
+    private String university;
+    private String faculty;
+    private String studentId;
 
     public Student() {
     }
 
-    public Student(String id, String name, LocalDate dateOfBirth) {
+    public Student(String id, Membership membership, String university, String faculty, String studentId) {
         this.id = id;
-        this.name = name;
-        this.dateOfBirth = dateOfBirth;
+        this.membership = membership;
+        this.university = university;
+        this.faculty = faculty;
+        this.studentId = studentId;
     }
 
     public String getId() {
         return id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public LocalDate getDateOfBirth() {
-        return dateOfBirth;
-    }
-
     public void setId(String id) {
         this.id = id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Membership getMembership() {
+        return membership;
     }
 
-    public void setDateOfBirth(LocalDate dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setMembership(Membership membership) {
+        this.membership = membership;
     }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
-                '}';
+    public String getUniversity() {
+        return university;
+    }
+
+    public void setUniversity(String university) {
+        this.university = university;
+    }
+
+    public String getFaculty() {
+        return faculty;
+    }
+
+    public void setFaculty(String faculty) {
+        this.faculty = faculty;
+    }
+
+    public String getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
     }
 
     @Override
@@ -55,11 +65,22 @@ public class Student {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Student student = (Student) o;
-        return Objects.equals(id, student.id) && Objects.equals(name, student.name) && Objects.equals(dateOfBirth, student.dateOfBirth);
+        return Objects.equals(id, student.id) && Objects.equals(membership, student.membership) && Objects.equals(university, student.university) && Objects.equals(faculty, student.faculty) && Objects.equals(studentId, student.studentId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, dateOfBirth);
+        return Objects.hash(id, membership, university, faculty, studentId);
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id='" + id + '\'' +
+                ", membership=" + membership +
+                ", university='" + university + '\'' +
+                ", faculty='" + faculty + '\'' +
+                ", studentId='" + studentId + '\'' +
+                '}';
     }
 }

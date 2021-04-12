@@ -1,6 +1,5 @@
 package edu.hav.labs.controller.rest;
 
-import edu.hav.labs.model.Student;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -28,7 +27,7 @@ public class CommonController {
                 "    Виконав (ла): студент (ка) 2 курсу, групи 243 спеціальності <br>\n" +
                 "    <u>121 – Інженерія програмного забезпечення</u> <br>\n" +
                 "    <small style=\"display:block;text-align:center; font-size: 15px;\">(шифр – назва спеціальності)</small>\n" +
-                "    <u style=\"display:block;\">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;"+name+"</u>\n" +
+                "    <u style=\"display:block;\">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;" + name + "</u>\n" +
                 "    <span style=\"display:block; text-align: center;\">(прізвище, ім’я, по-батькові студента)</span>\n" +
                 "    Керівник <u>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Прохоров Г. В.</u> <br>\n" +
                 "    <small style=\"display:block;text-align:center; font-size: 15px;\">(підпис) (прізвище та ініціали)</small> <br>\n" +
@@ -52,9 +51,5 @@ public class CommonController {
                 "</body>";
     }
 
-    @RequestMapping("/student")
-    public Student getStudent() {
-        Student student = new Student("kjdgh", "John", LocalDate.of(2000, 11, 11));
-        return student;
-    }
+
 }
