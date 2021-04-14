@@ -16,6 +16,7 @@
             <th class="text-center">Number of books</th>
             <th class="text-center">Number of memberships</th>
             <th></th>
+            <th></th>
         </tr>
         <#list libraries as library>
             <tr>
