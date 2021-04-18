@@ -27,7 +27,7 @@ public class LibraryUiController {
     LibraryServiceImpl service;
 
     @RequestMapping("/get/all")
-    public String showAll(Model model){
+    public String showAll(Model model) {
 
         List<Library> libraries = service.getAll();
         model.addAttribute("libraries", libraries);
@@ -36,13 +36,13 @@ public class LibraryUiController {
     }
 
     @RequestMapping("/delete/{id}")
-    public String delete(Model model, @PathVariable String id){
+    public String delete(Model model, @PathVariable String id) {
         service.delete(id);
         return "redirect:/ui/libraries/get/all";
     }
 
     @GetMapping("/create")
-    public String create(Model model){
+    public String create(Model model) {
         LibraryForm libraryForm = new LibraryForm();
         libraryForm.setName(" ");
         model.addAttribute("libraryForm", libraryForm);
@@ -52,7 +52,7 @@ public class LibraryUiController {
 
     @PostMapping("/create")
     public String create(Model model,
-                         @ModelAttribute("libraryForm") LibraryForm libraryForm){
+                         @ModelAttribute("libraryForm") LibraryForm libraryForm) {
         Library library = new Library();
         library.setName(libraryForm.getName());
         library.setAddress(libraryForm.getAddress());
@@ -64,7 +64,7 @@ public class LibraryUiController {
     }
 
     @GetMapping("/update/{id}")
-    public String update(Model model, @PathVariable String id){
+    public String update(Model model, @PathVariable String id) {
         LibraryForm libraryForm = new LibraryForm();
         libraryForm.setName(service.getById(id).getName());
         libraryForm.setAddress(service.getById(id).getAddress());
