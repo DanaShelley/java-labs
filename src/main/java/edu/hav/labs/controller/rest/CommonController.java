@@ -1,9 +1,11 @@
 package edu.hav.labs.controller.rest;
 
+import io.swagger.v3.oas.annotations.Hidden;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 
+@Hidden
 @RestController
 public class CommonController {
 

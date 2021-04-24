@@ -1,14 +1,17 @@
 package edu.hav.labs.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Objects;
 
+@Schema(description = "Library Document? Entity")
 @Document
 public class Library {
     @Id
     private String id;
+    @Schema(description = "Library name", defaultValue = "New Library")
     private String name;
     private String address;
     private int numberOfBooks;

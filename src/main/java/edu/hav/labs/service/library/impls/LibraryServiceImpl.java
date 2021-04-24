@@ -41,6 +41,10 @@ public class LibraryServiceImpl implements ILibraryService {
 
     @Override
     public Library create(Library library) {
+        String id = String.valueOf(this.getAll().stream()
+                .mapToInt(el->Integer.parseInt(el.getId())).max().orElse(0) + 1);
+        library.setId(id);
+        this.getAll().add(library);
         return repository.save(library);
     }
 
