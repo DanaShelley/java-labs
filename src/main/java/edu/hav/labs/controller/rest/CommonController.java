@@ -1,8 +1,15 @@
 package edu.hav.labs.controller.rest;
 
-import org.springframework.web.bind.annotation.*;
+/*
+  @author   Havaleshko Bohdana
+  @project   labs
+  @version  1.0.0
+  @since 13.04.2021
+*/
 
-import java.time.LocalDate;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CommonController {
