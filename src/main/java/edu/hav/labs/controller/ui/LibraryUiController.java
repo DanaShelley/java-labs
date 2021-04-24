@@ -28,7 +28,6 @@ public class LibraryUiController {
 
     @RequestMapping("/get/all")
     public String showAll(Model model) {
-
         List<Library> libraries = service.getAll();
         model.addAttribute("libraries", libraries);
 
@@ -79,12 +78,14 @@ public class LibraryUiController {
     public String update(Model model,
                          @ModelAttribute("libraryForm") LibraryForm libraryForm, @PathVariable String id) {
 
-        service.getById(id).setId(id);
-        service.getById(id).setName(libraryForm.getName());
-        service.getById(id).setAddress(libraryForm.getAddress());
-        service.getById(id).setNumberOfBooks(libraryForm.getNumberOfBooks());
-        service.getById(id).setNumberOfMembership(libraryForm.getNumberOfMembership());
+        Library library = new Library();
+        library.setId(id);
+        library.setName(libraryForm.getName());
+        library.setAddress(libraryForm.getAddress());
+        library.setNumberOfBooks(libraryForm.getNumberOfBooks());
+        library.setNumberOfMembership(libraryForm.getNumberOfMembership());
 
+        service.update(library);
         return "redirect:/ui/libraries/get/all";
     }
 }
