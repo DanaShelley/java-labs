@@ -1,0 +1,27 @@
+.select2-container--bootstrap .select2-selection--single {
+    font-size: 1rem;
+    color: black;
+    height: 38px;
+}
+
+.select2-container--bootstrap.select2-container--focus .select2-selection, .select2-container--bootstrap.select2-container--open .select2-selection {
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.select2-container--bootstrap .select2-dropdown {
+    border-color: #aaaaaa;
+}
+
+.select2-container--bootstrap.select2-container--open.select2-container--below .select2-selection {
+    border-radius: 4px;
+}
+
+.select2-container--bootstrap .select2-selection--multiple .select2-selection__choice__remove {
+    background: #dbdbdb;
+    color: black;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}

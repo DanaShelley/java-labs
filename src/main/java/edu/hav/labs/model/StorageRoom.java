@@ -1,65 +1,30 @@
 package edu.hav.labs.model;
+/*
+  @author   Bohdana Havaleshko
+  @project   coursework
+  @class  StorageRoom
+  @version  1.0.0 
+  @since 20.04.2021
+*/
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import nonapi.io.github.classgraph.json.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
-import java.util.Objects;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Schema(description = "Storage room Document")
+@Document(collection = "storageRoom")
 public class StorageRoom {
+    @Id
     private String id;
     private Library library;
-    private List<Staff> staff;
-
-    public StorageRoom() {
-    }
-
-    public StorageRoom(String id, Library library, List<Staff> staff) {
-        this.id = id;
-        this.library = library;
-        this.staff = staff;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Library getLibrary() {
-        return library;
-    }
-
-    public void setLibrary(Library library) {
-        this.library = library;
-    }
-
-    public List<Staff> getStaff() {
-        return staff;
-    }
-
-    public void setStaff(List<Staff> staff) {
-        this.staff = staff;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        StorageRoom that = (StorageRoom) o;
-        return Objects.equals(id, that.id) && Objects.equals(library, that.library) && Objects.equals(staff, that.staff);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, library, staff);
-    }
-
-    @Override
-    public String toString() {
-        return "StorageRoom{" +
-                "id='" + id + '\'' +
-                ", library=" + library +
-                ", staff=" + staff +
-                '}';
-    }
+    private List<Staff> staffs;
+    private String number;
 }

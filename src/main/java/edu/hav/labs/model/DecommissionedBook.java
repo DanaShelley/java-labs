@@ -1,76 +1,31 @@
 package edu.hav.labs.model;
+/*
+  @author   Bohdana Havaleshko
+  @project   coursework
+  @class  DecommissionedBook
+  @version  1.0.0 
+  @since 20.04.2021
+*/
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import nonapi.io.github.classgraph.json.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
-import java.util.Objects;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Schema(description = "Decommissioned book Document")
+@Document(collection = "decommissionedBook")
 public class DecommissionedBook {
+    @Id
     private String id;
     private Book book;
-    private LocalDate dateOfDecimession;
+    private LocalDate dateOfDecommission;
+    @Schema(description = "the reason the book was decommissioned")
     private String reason;
-
-    public DecommissionedBook() {
-    }
-
-    public DecommissionedBook(String id, Book book, LocalDate dateOfDecimession, String reason) {
-        this.id = id;
-        this.book = book;
-        this.dateOfDecimession = dateOfDecimession;
-        this.reason = reason;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Book getBook() {
-        return book;
-    }
-
-    public void setBook(Book book) {
-        this.book = book;
-    }
-
-    public LocalDate getDateOfDecimession() {
-        return dateOfDecimession;
-    }
-
-    public void setDateOfDecimession(LocalDate dateOfDecimession) {
-        this.dateOfDecimession = dateOfDecimession;
-    }
-
-    public String getReason() {
-        return reason;
-    }
-
-    public void setReason(String reason) {
-        this.reason = reason;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        DecommissionedBook that = (DecommissionedBook) o;
-        return Objects.equals(id, that.id) && Objects.equals(book, that.book) && Objects.equals(dateOfDecimession, that.dateOfDecimession) && Objects.equals(reason, that.reason);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, book, dateOfDecimession, reason);
-    }
-
-    @Override
-    public String toString() {
-        return "DecommissionedBook{" +
-                "id='" + id + '\'' +
-                ", book=" + book +
-                ", dateOfDecimession=" + dateOfDecimession +
-                ", reason='" + reason + '\'' +
-                '}';
-    }
 }

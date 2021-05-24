@@ -1,50 +1,62 @@
 package edu.hav.labs.controller.rest;
+/*
+  @author   Bohdana Havaleshko
+  @project   labs
+  @class  LibraryRestController
+  @version  1.0.0 
+  @since 20.04.2021
+*/
+
 
 import edu.hav.labs.model.Library;
 import edu.hav.labs.service.library.impls.LibraryServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Tag(name = "Library Controller API", description = "Detailed description")
 @RestController
 @RequestMapping("api/libraries")
+@Tag(name = "Library", description = "Library API")
 public class LibraryRestController {
 
-    @Autowired
+    final
     LibraryServiceImpl service;
 
-    @RequestMapping("/get/all")
-    public List<Library> getStudents() {
+    public LibraryRestController(LibraryServiceImpl service) {
+        this.service = service;
+    }
+
+    @Operation(summary = "Get all libraries")
+    @GetMapping("/get/all")
+    public List<Library> getLibraries(){
         return service.getAll();
     }
 
-    @Operation(summary = "Get library by id", description = "in UUID format")
+    @Operation(summary = "Get library by id")
     @GetMapping("/get/{id}")
-    public Library getById(@PathVariable("id")
-                               @Parameter(name = "Library id", description = "Warning! It is in UUID format")
-                                       String id) {
+    public Library getById(@PathVariable("id") @Parameter(name = "id", description = "ID of library to get", required = true) String id ){
         return service.getById(id);
     }
 
-    @GetMapping("/delete/{id}")
-    public Library deleteById(@PathVariable("id") String id) {
+    @Operation(summary = "Delete library by id")
+    @DeleteMapping("/delete/{id}")
+    public Library deleteById(@PathVariable("id") @Parameter(name = "id", description = "ID of library to delete", required = true) String id ){
         return service.delete(id);
     }
 
-
-    @Operation(summary = "Library creation", description = "id to be created is UUID type")
+    @Operation(summary = "Add new library")
     @PostMapping("/create/")
-    public Library create(@RequestBody Library library) {
+    public Library create(@RequestBody Library library){
         return service.create(library);
     }
 
-    @PostMapping("/update/")
-    public Library update(@RequestBody Library library) {
+    @Operation(summary = "Edit library")
+    @PutMapping("/update/")
+    public Library update(@RequestBody Library library){
         return service.update(library);
     }
+
 }

@@ -1,64 +1,28 @@
 package edu.hav.labs.model;
+/*
+  @author   Bohdana Havaleshko
+  @project   coursework
+  @class  Worker
+  @version  1.0.0 
+  @since 20.04.2021
+*/
 
-import java.util.Objects;
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import nonapi.io.github.classgraph.json.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Schema(description = "Worker Document")
+@Document(collection = "worker")
 public class Worker {
+    @Id
     private String id;
     private Membership membership;
     private Library library;
-
-    public Worker() {
-    }
-
-    public Worker(String id, Membership membership, Library library) {
-        this.id = id;
-        this.membership = membership;
-        this.library = library;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Membership getMembership() {
-        return membership;
-    }
-
-    public void setMembership(Membership membership) {
-        this.membership = membership;
-    }
-
-    public Library getLibrary() {
-        return library;
-    }
-
-    public void setLibrary(Library library) {
-        this.library = library;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Worker worker = (Worker) o;
-        return Objects.equals(id, worker.id) && Objects.equals(membership, worker.membership) && Objects.equals(library, worker.library);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, membership, library);
-    }
-
-    @Override
-    public String toString() {
-        return "Worker{" +
-                "id='" + id + '\'' +
-                ", membership=" + membership +
-                ", library=" + library +
-                '}';
-    }
+    private String workerId;
 }
