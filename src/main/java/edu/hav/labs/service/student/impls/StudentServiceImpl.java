@@ -10,6 +10,7 @@ package edu.hav.labs.service.student.impls;
 import edu.hav.labs.model.Student;
 import edu.hav.labs.repository.student.StudentRepository;
 import edu.hav.labs.service.student.interfaces.IStudentService;
+import lombok.var;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -52,4 +53,16 @@ public class StudentServiceImpl implements IStudentService {
     public List<Student> getAll() {
         return repository.findAll();
     }
+
+    @Override
+    public List<Student> getStudentsByUniversity(String university) {
+        return repository.findAllByUniversity(university);
+    }
+
+    @Override
+    public List<Student> getStudentsByFaculty(String faculty) {
+        return repository.findAllByFaculty(faculty);
+    }
+
+
 }

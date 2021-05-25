@@ -10,6 +10,7 @@ package edu.hav.labs.service.edition.interfaces;
 
 import edu.hav.labs.model.Edition;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface IEditionService {
@@ -18,5 +19,6 @@ public interface IEditionService {
     Edition update(Edition edition);
     Edition delete(String id);
     List<Edition> getAll();
-
+    List<String> findEditionNameThatMembershipTakesBetweenDates(String id, LocalDate date1, LocalDate date2);
+    List<Edition> findEditionThatMembershipTakesBetweenDatesFromLibrary(String membershipId, String libraryId, LocalDate date1, LocalDate date2);
 }

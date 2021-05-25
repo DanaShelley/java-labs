@@ -57,4 +57,9 @@ public class BookHeldByMembershipRestController {
         return service.update(bookHeldByMembership);
     }
 
+    @GetMapping("/get/by-edition-id/{id}")
+    public List<BookHeldByMembership> findAllByBook_Edition_Id(@PathVariable("id") String id ){
+        return service.findAllByBook_Edition_Id(id);
+    }
+
 }

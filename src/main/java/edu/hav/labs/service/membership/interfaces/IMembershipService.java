@@ -8,7 +8,9 @@ package edu.hav.labs.service.membership.interfaces;
 */
 
 import edu.hav.labs.model.Membership;
+import org.bson.Document;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface IMembershipService {
@@ -17,4 +19,6 @@ public interface IMembershipService {
     Membership update(Membership membership);
     Membership delete(String id);
     List<Membership> getAll();
+    List<Document> getMembershipsServiceByStaff(String staffId, LocalDate date1, LocalDate date2);
+    List<Membership> getMembershipsWhoOverdueDeadLine();
 }

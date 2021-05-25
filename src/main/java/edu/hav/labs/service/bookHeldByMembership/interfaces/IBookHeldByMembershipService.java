@@ -17,4 +17,5 @@ public interface IBookHeldByMembershipService {
     BookHeldByMembership update(BookHeldByMembership bookHeldByMembership);
     BookHeldByMembership delete(String id);
     List<BookHeldByMembership> getAll();
+    List<BookHeldByMembership> findAllByBook_Edition_Id(String id);
 }

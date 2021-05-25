@@ -29,32 +29,38 @@ public class BookRestController {
 
     @Operation(summary = "Get all books")
     @GetMapping("/get/all")
-    public List<Book> getBooks(){
+    public List<Book> getBooks() {
         return service.getAll();
     }
 
     @Operation(summary = "Get book by id")
     @GetMapping("/get/{id}")
-    public Book getById(@PathVariable("id") String id ){
+    public Book getById(@PathVariable("id") String id) {
         return service.getById(id);
     }
 
     @Operation(summary = "Delete book by id")
     @DeleteMapping("/delete/{id}")
-    public Book deleteById(@PathVariable("id") String id ){
+    public Book deleteById(@PathVariable("id") String id) {
         return service.delete(id);
     }
 
     @Operation(summary = "Add new book")
     @PostMapping("/create/")
-    public Book create(@RequestBody Book book){
+    public Book create(@RequestBody Book book) {
         return service.create(book);
     }
 
     @Operation(summary = "Edit book by id")
     @PutMapping("/update/")
-    public Book update(@RequestBody Book book){
+    public Book update(@RequestBody Book book) {
         return service.update(book);
     }
 
+    @GetMapping("/get/book-given-from-shelf/{libraryId}/{stellageNumber}/{shelfNumber}")
+    public List<Book> getBookGivenFromLibraryShelf(@PathVariable("shelfNumber") int shelfNumber,
+                                                   @PathVariable("stellageNumber") int stellageNumber,
+                                                   @PathVariable("libraryId") String libraryId) {
+        return service.getBookGivenFromLibraryShelf(shelfNumber, stellageNumber, libraryId);
+    }
 }

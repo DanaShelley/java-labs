@@ -54,4 +54,9 @@ public class BookHeldByMembershipImpl implements IBookHeldByMembershipService {
         return repository.findAll();
     }
 
+    @Override
+    public List<BookHeldByMembership> findAllByBook_Edition_Id(String id) {
+        return repository.findAllByBook_Edition_Id(id);
+    }
+
 }

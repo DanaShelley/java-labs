@@ -57,4 +57,13 @@ public class StudentRestController {
         return service.update(student);
     }
 
+    @GetMapping("/get/by-university/{university}")
+    public List<Student> getStudentsByUniversity(@PathVariable("university") String university ){
+        return service.getStudentsByUniversity(university);
+    }
+
+    @GetMapping("/get/by-faculty/{faculty}")
+    public List<Student> getStudentsByFaculty(@PathVariable("faculty") String faculty ){
+        return service.getStudentsByFaculty(faculty);
+    }
 }

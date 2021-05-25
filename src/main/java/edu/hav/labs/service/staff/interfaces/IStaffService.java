@@ -8,6 +8,7 @@ package edu.hav.labs.service.staff.interfaces;
 */
 
 import edu.hav.labs.model.Staff;
+import org.bson.Document;
 
 import java.util.List;
 
@@ -17,4 +18,5 @@ public interface IStaffService {
     Staff update(Staff staff);
     Staff delete(String id);
     List<Staff> getAll();
+    Document countServedMembershipsByStaffId(String id);
 }

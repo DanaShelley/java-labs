@@ -22,6 +22,7 @@ public class BookForm {
     private String storageRoom;
     private String stellageNumber;
     private String shelveNumber;
+    private String inventoryNumber;
     private String dateOfReceipt;
     private String isDecommissioned;
 
@@ -32,6 +33,7 @@ public class BookForm {
         this.storageRoom = "";
         this.stellageNumber = String.valueOf((int) (Math.random()*5+1));
         this.shelveNumber = String.valueOf((int) (Math.random()*8+1));
+        this.inventoryNumber = String.valueOf((int) (Math.random()*90000000+10000000));
 
         LocalDate startDate = LocalDate.of(2018, 1, 1); //start date
         long start = startDate.toEpochDay();

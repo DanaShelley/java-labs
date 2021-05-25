@@ -30,6 +30,7 @@ public class Book {
     private StorageRoom storageRoom;
     private int stellageNumber;
     private int shelveNumber;
+    private String inventoryNumber;
     private LocalDate dateOdReceipt;
     private boolean isDecommissioned;
 }

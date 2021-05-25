@@ -13,6 +13,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -55,5 +56,19 @@ public class EditionRestController {
     @PutMapping("/update/")
     public Edition update(@RequestBody Edition edition){
         return service.update(edition);
+    }
+
+    @GetMapping("/get/by-membership-usage/{id}/{date1}/{date2}")
+    public List<String> findEditionNameThatMembershipTakesBetweenDates(@PathVariable("id") String id, @PathVariable("date1") String date1, @PathVariable("date2") String date2 ){
+        LocalDate parseDate1 = LocalDate.parse(date1);
+        LocalDate parseDate2 = LocalDate.parse(date2);
+        return service.findEditionNameThatMembershipTakesBetweenDates(id, parseDate1, parseDate2);
+    }
+
+    @GetMapping("/get/by-membership-usage/{membershipId}/by-library/{libraryId}/{date1}/{date2}")
+    public List<Edition> findEditionThatMembershipTakesBetweenDatesFromLibrary(@PathVariable("membershipId") String membershipId, @PathVariable("libraryId") String libraryId,  @PathVariable("date1") String date1, @PathVariable("date2") String date2  ){
+        LocalDate parseDate1 = LocalDate.parse(date1);
+        LocalDate parseDate2 = LocalDate.parse(date2);
+        return service.findEditionThatMembershipTakesBetweenDatesFromLibrary(membershipId, libraryId, parseDate1, parseDate2);
     }
 }

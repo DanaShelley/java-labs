@@ -9,10 +9,12 @@ package edu.hav.labs.service.book.impls;
 
 import edu.hav.labs.model.Book;
 import edu.hav.labs.repository.book.BookRepository;
+import edu.hav.labs.repository.bookHeldByMembership.BookHeldByMembershipRepository;
 import edu.hav.labs.service.book.interfaces.IBookService;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -22,13 +24,19 @@ public class BookServiceImpl implements IBookService {
     final
     BookRepository repository;
 
-    public BookServiceImpl(BookRepository repository) {
+    final
+    BookHeldByMembershipRepository bookHeldByMembershipRepository;
+
+
+    public BookServiceImpl(BookRepository repository, BookHeldByMembershipRepository bookHeldByMembershipRepository) {
         this.repository = repository;
+        this.bookHeldByMembershipRepository = bookHeldByMembershipRepository;
     }
-    
+
     @Override
     public Book getById(String id) {
-        return repository.findById(id).orElse(null);
+        return repository.findById(id)
+                         .orElse(null);
     }
 
     @Override
@@ -51,5 +59,25 @@ public class BookServiceImpl implements IBookService {
     @Override
     public List<Book> getAll() {
         return repository.findAll();
+    }
+
+    @Override
+    public List<Book> getBookGivenFromLibraryShelf(int shelfNumber, int stellageNumber, String libraryId) {
+        List<Book> books = new ArrayList<>();
+        bookHeldByMembershipRepository.findAll()
+                                      .forEach(bookHeldByMembership -> {
+                                          if (bookHeldByMembership.getBook()
+                                                                  .getShelveNumber() == shelfNumber &&
+                                                  bookHeldByMembership.getBook()
+                                                                      .getStorageRoom()
+                                                                      .getLibrary()
+                                                                      .getId()
+                                                                      .equals(libraryId) &&
+                                                  bookHeldByMembership.getBook()
+                                                                      .getStellageNumber() == stellageNumber) {
+                                              books.add(bookHeldByMembership.getBook());
+                                          }
+                                      });
+        return books;
     }
 }

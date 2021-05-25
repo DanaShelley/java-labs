@@ -82,6 +82,12 @@
         </div>
 
         <div class="form-group">
+            <label for="shelveNumber" class="form-label">Інвентарний номер: </label>
+            <input type="text" name="inventoryNumber" id="inventoryNumber" class="form-control" placeholder="254655641" min="0"
+                   required value="${bookForm.inventoryNumber}">
+        </div>
+
+        <div class="form-group">
             <label for="dateOfReceipt" class="form-label">Дата надходження: </label>
             <input type="date" name="dateOfReceipt" id="dateOfReceipt" class="form-control" required
                    value="${book.dateOdReceipt}">

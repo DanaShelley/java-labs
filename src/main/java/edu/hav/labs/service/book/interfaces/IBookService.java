@@ -18,4 +18,5 @@ public interface IBookService {
     Book update(Book book);
     Book delete(String id);
     List<Book> getAll();
+    List<Book> getBookGivenFromLibraryShelf(int shelfNumber, int stellageNumber, String libraryId);
 }

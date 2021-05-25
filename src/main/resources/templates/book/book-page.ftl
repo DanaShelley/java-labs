@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Memberships</title>
+    <title>Книги</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
@@ -19,6 +19,7 @@
             <th class="text-center">Сховище</th>
             <th class="text-center">Стелаж</th>
             <th class="text-center">Полиця</th>
+            <th class="text-center">Інвентарний номер</th>
             <th class="text-center">Дата надходження</th>
             <th class="text-center">Списання</th>
             <th colspan="11"><a class="btn btn-light" href="/ui/books/create" style="width: 100%;">Додати</a></th>
@@ -36,6 +37,7 @@
                 <td class="text-center">${book.storageRoom.number}</td>
                 <td class="text-center">${book.stellageNumber}</td>
                 <td class="text-center">${book.shelveNumber}</td>
+                <td class="text-center">${book.inventoryNumber}</td>
                 <td class="text-center">${book.dateOdReceipt}</td>
                 <td class="text-center"><#if book.decommissioned == true>так<#else>ні</#if></td>
                 <td><a href="/ui/books/delete/${book.id}">
