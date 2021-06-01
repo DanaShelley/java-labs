@@ -11,14 +11,15 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import nonapi.io.github.classgraph.json.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "Library Document")
-@Document(collection = "library")
+@Entity
 public class Library {
     @Id
     private String id;

@@ -11,21 +11,26 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import nonapi.io.github.classgraph.json.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "Membership Document")
-@Document(collection = "membership")
+@Entity
 public class Membership {
-    @Id
+    @Id @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
     private String id;
     private String name;
     private String phone;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @NotFound(action = NotFoundAction.IGNORE)
     private Library library;
     private LocalDate dateOfRegistration;
     private LocalDate isValidUntil;

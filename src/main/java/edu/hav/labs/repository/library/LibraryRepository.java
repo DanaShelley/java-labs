@@ -8,9 +8,8 @@ package edu.hav.labs.repository.library;
 */
 
 import edu.hav.labs.model.Library;
-import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
-@Repository
-public interface LibraryRepository extends MongoRepository<Library, String> {
+public interface LibraryRepository extends CrudRepository<Library, String> {
 }

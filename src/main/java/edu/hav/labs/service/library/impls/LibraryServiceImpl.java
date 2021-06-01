@@ -3,7 +3,7 @@ package edu.hav.labs.service.library.impls;
   @author   Bohdana Havaleshko
   @project   labs
   @class  LibraryServiceImpl
-  @version  1.0.0 
+  @version  1.0.0
   @since 20.04.2021
 */
 
@@ -15,8 +15,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 @Component
+@Service
 public class LibraryServiceImpl implements ILibraryService {
 
     final
@@ -56,6 +56,6 @@ public class LibraryServiceImpl implements ILibraryService {
 
     @Override
     public List<Library> getAll() {
-        return repository.findAll();
+        return (List<Library>) repository.findAll();
     }
 }

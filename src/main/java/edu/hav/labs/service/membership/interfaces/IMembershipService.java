@@ -1,16 +1,14 @@
 package edu.hav.labs.service.membership.interfaces;
 /*
   @author   Bohdana Havaleshko
-  @project   labs
+  @project   coursework
   @interface  IMembershipService
   @version  1.0.0 
   @since 20.04.2021
 */
 
 import edu.hav.labs.model.Membership;
-import org.bson.Document;
 
-import java.time.LocalDate;
 import java.util.List;
 
 public interface IMembershipService {
@@ -19,6 +17,4 @@ public interface IMembershipService {
     Membership update(Membership membership);
     Membership delete(String id);
     List<Membership> getAll();
-    List<Document> getMembershipsServiceByStaff(String staffId, LocalDate date1, LocalDate date2);
-    List<Membership> getMembershipsWhoOverdueDeadLine();
 }
